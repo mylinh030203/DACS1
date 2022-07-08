@@ -1,0 +1,204 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#header {
+    /* font-family: font của toàn thẻ Georgia, serif; */
+    font-family: sans-serif;
+    font-weight: bold;
+    /* font in đậm */
+    background-color: #000000;
+    position: fixed;
+    /* Thiết lập vị trí cố định */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    /* độ ưu tiên =1, số càng lớn, độ ưu tiên càng cao*/
+    text-decoration: none;
+    /* đường trang trí cho văn bản */
+}
+
+#main-menu,
+#main-menu img {
+    display: grid;
+    /* hiển thị dưới dạng lưới có hàng và cột */
+    grid-auto-flow: column;
+    /* tự động chia khổi đó theo các cột */
+    gap: 4px;
+    /* khoảng cách giữa các cột là 4px */
+    align-items: center;
+    /* căn giữa cho các phần tử  */
+    justify-items: center;
+    /* căn chỉnh các phần tử bên trong vào giữa */
+
+}
+
+#main-menu img {
+    height: 50px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#main-menu {
+    display: flex;
+    /* các thành phần hieent thị linh hoạt hơn */
+}
+
+nav #main-menu li a {
+    color: #fff;
+    text-decoration: none;
+    /* không đặt các trang trí khác nhau cho phần tử */
+    display: block;
+    padding: 19px 20px;
+    /* đệm trên dưới 19, đệp phải trái 20 */
+}
+nav #main-menu li a:hover  {
+    color: #0099ff;
+    padding-top: 10px;
+}
+#toggle {
+    display: none;
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    /* con trỏ và chỉ đến 1 liên kết  */
+    /* icon sau khi thu nhỏ */
+}
+
+@media screen and (max-width: 768px) {
+    /* thực hiện css trong này khi chiều rộng của màn hình<= 768px */
+    #main-menu {
+        flex-direction: column;
+        text-align: center;
+        background-color: #000000;
+    }
+    #toggle {
+        display: block;
+    }
+    nav {
+        display: none;
+    }
+    /* .footer{
+        margin-top:0px !important;
+    } */
+}
+
+@media screen and (max-width: 768px) {
+    #main-menu {
+        flex-direction: column;
+        text-align: center;
+    }
+    #toggle {
+        display: block;
+        text-align: left;
+    }
+    nav {
+        display: none;
+    }
+}
+
+.nav ul li {
+    list-style: none;
+    display: inline-block;
+    /* margin-right: -4px; */
+    position: relative;
+    /* định vị tương đối so với vị trí của thẻ chứa nó */
+}
+
+.nav a {
+    background: black;
+    color: #ddd;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+}
+
+.nav>ul>li>ul>li>a:hover,
+.nav>ul>li>ul>li>ul>li>a:hover {
+    /* > chứa trong, điều kiện để css cho thẻ sau cùng */
+    background: #404040;
+    color: #AFAFAF;
+}
+
+.nav ul li a:hover {
+    color: aqua;
+}
+
+.nav>ul>li>ul,
+.nav>ul>li>ul>li>ul {
+    position: absolute;
+    /* vị trí tuyệt đối, tìm 1 thẻ bên ngoài có position là relative rồi nhận thẻ gần nhất làm vị trí tương đối*/
+    white-space: nowrap;
+/*  thu nhỏ khoảng trắng, văn bản sẽ không xuống dòng đến khi gặp br */
+}
+
+.nav>ul>li>ul>li,
+.nav>ul>li>ul>li>ul>li {
+    display: block;
+    position: relative;
+    
+}
+
+.nav>ul>li>ul,
+.nav>ul>li>ul>li>ul {
+    opacity: 0;
+    visibility: hidden;
+    /*  bị ẩn */
+}
+
+.nav>ul>li>ul {
+    top: 75px;
+    transition: all .2s ease-in-out;
+    /* kiểu thay đổi hiệu ứng cho từng thuộc tính, thay đổi thuộc tính trong 0.2s
+     */
+}
+
+.nav>ul>li:hover>ul,
+.nav>ul>li>ul>li:hover>ul {
+    opacity: 1;
+    visibility: visible;
+    /* hiện */
+}
+
+.nav>ul>li:hover>ul {
+    top: 100%;
+    transition: all .2s ease-in-out;
+    /* chậm ở đầu và cuối */
+}
+
+.nav>ul>li>ul>li>ul {
+    top: 0;
+    left: 0;
+    transition: all 2s ease-in-out;
+}
+
+.nav>ul>li>ul>li:hover>ul {
+    left: 100%;
+    transition: all 2s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+    /* chỉ thực hiện khi màn hình lớn hơn 768 */
+    .lg {
+        float: right;
+        margin: auto;
+        margin-right:50px
+    }
+    #toggle {
+        line-height: 55px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #toggle {
+        height: 55px;
+    }
+}
